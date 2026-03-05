@@ -1,0 +1,14 @@
+{
+  "name": "hzshop-fullstack",
+  "private": true,
+  "version": "1.0.0",
+  "description": "hzShop — Full-stack e-commerce (English + Persian) with WhatsApp checkout + Admin dashboard",
+  "scripts": {
+    "install:all": "npm i --prefix server && npm i --prefix client",
+    "dev": "npm run dev --prefix server",
+    "dev:client": "npm run dev --prefix client",
+    "build": "npm run build --prefix client",
+    "start": "npm start --prefix server",
+    "seed": "npm run seed --prefix server"
+  }
+}

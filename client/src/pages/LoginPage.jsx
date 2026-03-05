@@ -1,0 +1,64 @@
+import { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import Container from '../components/Container';
+import Button from '../components/Button';
+import { useStore } from '../app/store';
+import { useTranslation } from 'react-i18next';
+
+export default function LoginPage() {
+  const { t } = useTranslation();
+  const { login } = useStore();
+  const nav = useNavigate();
+  const loc = useLocation();
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  async function submit(e) {
+    e.preventDefault();
+    setError('');
+    setLoading(true);
+    try {
+      await login(email, password);
+      nav(loc.state?.from || '/');
+    } catch (err) {
+      setError(err.message || 'Login failed');
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  return (
+    <main>
+      <Container className="py-14">
+        <div className="mx-auto max-w-md rounded-2xl border border-neutral-200 bg-white p-8 shadow-soft">
+          <div className="text-3xl font-extrabold">{t('auth.welcome')}</div>
+          <div className="mt-2 text-sm text-neutral-600">{t('auth.welcomeSub')}</div>
+
+          <form className="mt-8 space-y-4" onSubmit={submit}>
+            <div>
+              <label className="text-xs font-semibold">{t('auth.email')}</label>
+              <input className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm" value={email} onChange={(e) => setEmail(e.target.value)} />
+            </div>
+            <div>
+              <label className="text-xs font-semibold">{t('auth.password')}</label>
+              <input type="password" className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm" value={password} onChange={(e) => setPassword(e.target.value)} />
+            </div>
+
+            {error && <div className="text-sm text-red-600">{error}</div>}
+
+            <Button className="w-full rounded-2xl" disabled={loading}>
+              {t('auth.signIn')}
+            </Button>
+          </form>
+
+          <div className="mt-6 text-center text-sm text-neutral-600">
+            {t('auth.noAccount')} <Link className="font-semibold text-neutral-900" to="/register">{t('auth.signUp')}</Link>
+          </div>
+        </div>
+      </Container>
+    </main>
+  );
+}

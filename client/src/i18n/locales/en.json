@@ -1,0 +1,168 @@
+{
+  "brand": "hzShop",
+  "nav": {
+    "home": "Home",
+    "shop": "Shop",
+    "login": "Login",
+    "logout": "Logout",
+    "admin": "Admin",
+    "cart": "Cart"
+    
+  },
+  "home": {
+    "badge": "New Collection 2026",
+    "headline": "Discover Your Perfect Style",
+    "sub": "Shop premium bags and fashion with our curated collection. Quality meets elegance.",
+    "cta1": "Shop Now",
+    "cta2": "View Collection",
+    "stats1": "Products",
+    "stats2": "Happy Customers",
+    "stats3": "Rating",
+    "categoryTitle": "Shop by Category",
+    "categorySub": "Explore our curated collections",
+    "featuredTitle": "Featured Products",
+    "featuredSub": "Handpicked favorites just for you",
+    "newsletterTitle": "Stay in the Loop",
+    "newsletterSub": "Subscribe to our newsletter for exclusive offers and latest updates",
+    "subscribe": "Subscribe",
+    "email": "Enter your email",
+    "heroAlt": "hero",
+    "viewAll": "View All",
+    "privacy": "We respect your privacy. Unsubscribe at any time.",
+
+    "trust": {
+      "freeShipping": { "title": "Free Shipping", "sub": "On all orders over $100" },
+      "securePayment": { "title": "Secure Payment", "sub": "100% secure transactions" },
+      "easyReturns": { "title": "Easy Returns", "sub": "30-day return policy" }
+    },
+
+    "categories": {
+      "productsLabel": "Products",
+      "items": {
+        "bags": { "name": "Bags", "count": "+50" },
+        "clothing": { "name": "Clothing", "count": "+100" },
+        "toteBags": { "name": "Tote Bags", "count": "+30" },
+        "shoulderBags": { "name": "Shoulder Bags", "count": "+25" }
+      }
+    },
+
+    "sale": {
+      "title": "Spring Sale Up to 40% Off",
+      "sub": "Limited time offer on selected items. Don't miss out on amazing deals!",
+      "cta": "Shop Sale Now"
+    }
+  },
+  "auth": {
+    "welcome": "Welcome Back",
+    "welcomeSub": "Enter your credentials to access your account",
+    "email": "Email",
+    "password": "Password",
+    "signIn": "Sign In",
+    "signUp": "Sign up",
+    "noAccount": "Don't have an account?",
+    "name": "Full Name",
+    "create": "Create account"
+  },
+  "shop": {
+    "title": "Shop All Products",
+    "filters": "Filters",
+    "category": "Category",
+    "price": "Price Range",
+    "color": "Color",
+    "size": "Size",
+    "clear": "Clear Filters",
+    "sort": "Sort by",
+    "newest": "Newest",
+    "priceLow": "Price low→high",
+    "priceHigh": "Price high→low",
+    "search": "Search products...",
+    "add": "Add to Cart",
+    "buy": "Buy Now",
+    "noResults": "No products found",
+    "results": "Results for \"{query}\"",
+    "showing": "Showing {count} products",
+    "of": "of {total}",
+    "categories": {
+      "all": "All",
+      "bags": "Bags",
+      "clothing": "Clothing",
+      "tote": "Tote Bags",
+      "shoulder": "Shoulder Bags" 
+    }
+
+  },
+  "product": {
+    "selectColor": "Select Color",
+    "quantity": "Quantity",
+    "wishlist": "Wishlist",
+    "youMayAlsoLike": "You May Also Like",
+    "addToCart": "Add to Cart",
+    "selectSize:": "Size"
+  },
+  "cart": {
+    "title": "Shopping Cart",
+    "summary": "Order Summary",
+    "subtotal": "Subtotal",
+    "Order Summary": "Order Summary",
+    "shipping": "Shipping",
+    "total": "Total",
+    "checkout": "Proceed to Checkout",
+    "continue": "Continue Shopping",
+    "qty": "Qty"
+  },
+  "checkout": {
+    "title": "Checkout",
+    "shippingInfo": "Shipping Information",
+    "fullName": "Full Name",
+    "phone": "Phone Number",
+    "address": "Street Address",
+    "city": "City",
+    "zip": "ZIP Code",
+    "notes": "Order Notes (Optional)",
+    "complete": "Complete Order via WhatsApp",
+    "secure": "Secure checkout",
+    "stepsTitle": "WhatsApp Payment",
+    "step1": "Fill in your shipping information above",
+    "step2": "Click the WhatsApp button",
+    "step3": "Send the message to complete your order",
+    "step4": "Follow payment instructions from our team",
+    "placeholders": {
+      "fullName": "e.g. Zaki Khan",
+      "phone": "e.g. +7 777 123 4567",
+      "city": "e.g. Astana"
+    },
+    "stepsDesc": "When you click \"Complete Order via WhatsApp\", your order details will be sent to our WhatsApp business number."
+  },
+  
+  "admin": {
+    "dashboard": "Dashboard",
+    "products": "Products",
+    "orders": "Orders",
+    "newProduct": "New Product",
+    "save": "Save",
+    "delete": "Delete",
+    "status": "Status",
+    "update": "Update",
+    "createAdmin": "Create Admin"
+  
+  },
+   "footer": {
+    "contact": "Contact",
+    "email": "support@hzshop.com",
+    "phone": "123-4567 (555) 1+",
+    "addressLine1": "Fashion Street 123",
+    "addressLine2": "New York, NY 10001",
+    "customerServiceTitle": "Customer Service",
+    "contactUs": "Contact Us",
+    "shippingReturns": "Shipping & Returns",
+    "faq": "FAQ",
+    "sizeGuide": "Size Guide",
+    "quickLinksTitle": "Quick Links",
+    "shopAll": "Shop All",
+    "newArrivals": "New Arrivals",
+    "bestSellers": "Best Sellers",
+    "sale": "Sale",
+    "brandTagline": "Your destination for premium bags and fashion. Quality meets style.",
+    "copyright": "hzShop. All rights reserved. Crafted with care {{year}} ©"
+  }
+}
