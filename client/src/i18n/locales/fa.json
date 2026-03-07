@@ -60,8 +60,27 @@
     "signUp": "ثبت‌نام",
     "noAccount": "حساب ندارید؟",
     "name": "نام کامل",
-    "create": "ساخت حساب"
+    "create": "ساخت حساب",
+    "registerSub": "برای مدیریت سریع‌تر سفارش‌ها حساب بسازید.",
+    "haveAccount": "از قبل حساب دارید؟",
+    "creating": "در حال ساخت...",
+    "placeholders": {
+      "name": "نام کامل شما",
+      "email": "you@example.com",
+      "password": "حداقل ۶ کاراکتر"
+      },
+      "signingIn": "در حال ورود..."
   },
+  "errors": {
+      "nameRequired": "نام کامل الزامی است.",
+      "nameMin": "نام کامل باید حداقل ۲ کاراکتر باشد.",
+      "emailRequired": "ایمیل الزامی است.",
+      "emailInvalid": "لطفاً یک ایمیل معتبر وارد کنید.",
+      "emailUsed": "این ایمیل قبلاً استفاده شده است.",
+      "passwordMin": "رمز عبور باید حداقل ۶ کاراکتر باشد.",
+      "passwordRequired": "رمز عبور الزامی است.",
+      "invalidCredentials": "ایمیل یا رمز عبور نادرست است."
+    },
   "shop": {
     "title": "همه محصولات",
     "filters": "فیلترها",
