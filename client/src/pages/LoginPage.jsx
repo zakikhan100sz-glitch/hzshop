@@ -40,21 +40,11 @@ export default function LoginPage() {
           <form className="mt-8 space-y-4" onSubmit={submit}>
             <div>
               <label className="text-xs font-semibold">{t('auth.email')}</label>
-              <input
-                className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+              <input className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm" value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
-
             <div>
               <label className="text-xs font-semibold">{t('auth.password')}</label>
-              <input
-                type="password"
-                className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <input type="password" className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
 
             {error && <div className="text-sm text-red-600">{error}</div>}
@@ -65,10 +55,7 @@ export default function LoginPage() {
           </form>
 
           <div className="mt-6 text-center text-sm text-neutral-600">
-            {t('auth.noAccount')}{' '}
-            <Link className="font-semibold text-neutral-900" to="/register">
-              {t('auth.signUp')}
-            </Link>
+            {t('auth.noAccount')} <Link className="font-semibold text-neutral-900" to="/register">{t('auth.signUp')}</Link>
           </div>
         </div>
       </Container>

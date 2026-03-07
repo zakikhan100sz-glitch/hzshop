@@ -35,37 +35,20 @@ export default function RegisterPage() {
       <Container className="py-14">
         <div className="mx-auto max-w-md rounded-2xl border border-neutral-200 bg-white p-8 shadow-soft">
           <div className="text-3xl font-extrabold">{t('auth.signUp')}</div>
-          <div className="mt-2 text-sm text-neutral-600">
-            Create an account to manage orders faster.
-          </div>
+          <div className="mt-2 text-sm text-neutral-600">Create an account to manage orders faster.</div>
 
           <form className="mt-8 space-y-4" onSubmit={submit}>
             <div>
               <label className="text-xs font-semibold">{t('auth.name')}</label>
-              <input
-                className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              />
+              <input className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
-
             <div>
               <label className="text-xs font-semibold">{t('auth.email')}</label>
-              <input
-                className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
+              <input className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm" value={email} onChange={(e) => setEmail(e.target.value)} />
             </div>
-
             <div>
               <label className="text-xs font-semibold">{t('auth.password')}</label>
-              <input
-                type="password"
-                className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+              <input type="password" className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-sm" value={password} onChange={(e) => setPassword(e.target.value)} />
             </div>
 
             {error && <div className="text-sm text-red-600">{error}</div>}
@@ -76,10 +59,7 @@ export default function RegisterPage() {
           </form>
 
           <div className="mt-6 text-center text-sm text-neutral-600">
-            Already have an account?{' '}
-            <Link className="font-semibold text-neutral-900" to="/login">
-              {t('auth.signIn')}
-            </Link>
+            Already have an account? <Link className="font-semibold text-neutral-900" to="/login">{t('auth.signIn')}</Link>
           </div>
         </div>
       </Container>
