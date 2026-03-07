@@ -27,6 +27,7 @@ app.set('trust proxy', 1);
 app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' }
 }));
+
 app.use(hpp());
 app.use(mongoSanitize());
 app.use(compression());
@@ -44,6 +45,7 @@ app.use(cors({
   },
   credentials: true
 }));
+
 
 if (process.env.NODE_ENV !== 'production') {
   app.use(morgan('dev'));

@@ -1,11 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import Container from "../components/Container";
 import Button from "../components/Button";
 import { useStore } from "../app/store";
 import { useTranslation } from "react-i18next";
-import { formatAFN } from "../utils/currency"; // AFN formatter
+import { formatAFN } from "../utils/currency";
 
 const PLACEHOLDER =
   "data:image/svg+xml;utf8," +
@@ -15,6 +15,7 @@ const PLACEHOLDER =
 
 export default function ProductPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { t, i18n } = useTranslation();
   const lang = i18n.language;
   const { addToCart } = useStore();
@@ -104,16 +105,30 @@ export default function ProductPage() {
   const sizesList = Array.isArray(product.sizes) ? product.sizes.filter(Boolean) : [];
   const needsSize = sizesList.length > 0;
 
-  function handleAdd(nextPath) {
+  function validateSelection() {
     setUiError("");
 
     if (needsSize && !size) {
       setUiError(t("product.selectSize") || "Please select a size.");
-      return;
+      return false;
     }
+    return true;
+  }
 
+  function handleAddToCart() {
+    if (!validateSelection()) return;
     addToCart(product, { qty, color, size });
-    window.location.href = nextPath;
+    navigate("/cart");
+  }
+
+  function handleBuyNow() {
+    if (!validateSelection()) return;
+    addToCart(product, { qty, color, size });
+    navigate("/checkout");
+  }
+
+  function handleBackToShop() {
+    navigate("/shop");
   }
 
   return (
@@ -129,7 +144,6 @@ export default function ProductPage() {
         </Link>
 
         <div className="mt-6 grid gap-10 lg:grid-cols-2">
-          {/* Images */}
           <div>
             <div className="overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-soft">
               <img
@@ -168,7 +182,6 @@ export default function ProductPage() {
             )}
           </div>
 
-          {/* Details */}
           <div>
             <div className="text-xs font-semibold text-neutral-500">
               {(product.tags?.[0] || product.category || "").toLowerCase()}
@@ -180,15 +193,15 @@ export default function ProductPage() {
               ★★★★★ ({product.reviewsCount || 0} reviews)
             </div>
 
-            {/* SHOW AVAILABLE SIZES ABOVE PRICE */}
             {sizesList.length > 0 && (
               <div className="mt-4 text-sm text-neutral-700">
-                <span className="font-semibold">{t("product.availableSizes") || "Available sizes"}:</span>{" "}
+                <span className="font-semibold">
+                  {t("product.availableSizes") || "Available sizes"}:
+                </span>{" "}
                 {sizesList.join(" • ")}
               </div>
             )}
 
-            {/* Price */}
             <div className={`${sizesList.length > 0 ? "mt-2" : "mt-4"} text-4xl font-extrabold`}>
               {formatAFN(product.price, lang)}
             </div>
@@ -197,7 +210,6 @@ export default function ProductPage() {
               {product.description}
             </div>
 
-            {/* Colors */}
             {!!product.colors?.length && (
               <div className="mt-6">
                 <div className="text-sm font-semibold">{t("product.selectColor")}</div>
@@ -220,7 +232,6 @@ export default function ProductPage() {
               </div>
             )}
 
-            {/* Sizes (selectable) */}
             {sizesList.length > 0 && (
               <div className="mt-6">
                 <div className="text-sm font-semibold">{t("product.selectSize") || "Select Size"}</div>
@@ -243,7 +254,6 @@ export default function ProductPage() {
               </div>
             )}
 
-            {/* Quantity */}
             <div className="mt-6">
               <div className="text-sm font-semibold">{t("product.quantity")}</div>
               <div className="mt-3 inline-flex items-center gap-3 rounded-xl border border-neutral-200 bg-white p-2">
@@ -266,31 +276,26 @@ export default function ProductPage() {
             </div>
 
             {uiError && (
-              <div className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-700">{uiError}</div>
+              <div className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-700">
+                {uiError}
+              </div>
             )}
 
-            {/* Actions */}
             <div className="mt-8">
-              <Button className="w-full rounded-2xl" onClick={() => handleAdd("/cart")}>
+              <Button className="w-full rounded-2xl" onClick={handleAddToCart}>
                 {t("product.addToCart")}
               </Button>
 
               <div className="mt-3 grid grid-cols-2 gap-3">
-                <Button variant="secondary" className="rounded-2xl" onClick={() => handleAdd("/checkout")}>
+                <Button variant="secondary" className="rounded-2xl" onClick={handleBuyNow}>
                   {t("shop.buy")}
                 </Button>
 
-                {/*  Wishlist removed */}
-                <Button
-                  variant="secondary"
-                  className="rounded-2xl"
-                  onClick={() => (window.location.href = "/shop")}
-                >
+                <Button variant="secondary" className="rounded-2xl" onClick={handleBackToShop}>
                   {t("product.backToShop") || "Back to Shop"}
                 </Button>
               </div>
             </div>
-
           </div>
         </div>
       </Container>
