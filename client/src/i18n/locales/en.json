@@ -81,8 +81,7 @@
       "emailInvalid": "Please enter a valid email address.",
       "emailUsed": "This email is already in use.",
       "passwordRequired": "Password is required.",
-      "passwordMin": "Password must be at least 6 characters.",
-      "invalidCredentials": "Incorrect email or password."
+      "passwordMin": "Password must be at least 6 characters."
     },
 
   "shop": {
