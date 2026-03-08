@@ -61,29 +61,8 @@
     "signUp": "Sign up",
     "noAccount": "Don't have an account?",
     "name": "Full Name",
-    "create": "Create account",
-    "registerSub": "Create an account to manage orders faster.",
-    "haveAccount": "Already have an account?",
-    "creating": "Creating...",
-    "placeholders": {
-      "name": "Your full name",
-      "email": "you@example.com",
-      "password": "At least 6 characters"
-    },
-    "signingIn": "Signing in...",
-    "signingUp": "Signing up..."
+    "create": "Create account"
   },
-
-   "errors": {
-      "nameRequired": "Full name is required.",
-      "nameMin": "Full name must be at least 2 characters.",
-      "emailRequired": "Email is required.",
-      "emailInvalid": "Please enter a valid email address.",
-      "emailUsed": "This email is already in use.",
-      "passwordRequired": "Password is required.",
-      "passwordMin": "Password must be at least 6 characters."
-    },
-
   "shop": {
     "title": "Shop All Products",
     "filters": "Filters",

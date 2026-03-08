@@ -4,9 +4,20 @@ export function notFound(req, res, next) {
 }
 
 export function errorHandler(err, req, res, next) {
-  const status = res.statusCode && res.statusCode !== 200 ? res.statusCode : 500;
-  res.status(status).json({
-    message: err.message || 'Server error',
-    ...(process.env.NODE_ENV !== 'production' ? { stack: err.stack } : {})
+  const statusCode = res.statusCode && res.statusCode !== 200 ? res.statusCode : 500;
+
+  // Zod validation errors
+  if (err?.name === "ZodError" || err?.issues) {
+    return res.status(400).json({
+      message: "Validation failed",
+      errors: err.issues?.map((issue) => ({
+        field: issue.path?.[0] || "field",
+        message: issue.message,
+      })) || [],
+    });
+  }
+
+  res.status(statusCode).json({
+    message: err.message || "Server Error",
   });
 }

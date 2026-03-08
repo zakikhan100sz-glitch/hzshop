@@ -105,30 +105,16 @@ export default function ProductPage() {
   const sizesList = Array.isArray(product.sizes) ? product.sizes.filter(Boolean) : [];
   const needsSize = sizesList.length > 0;
 
-  function validateSelection() {
+  function handleAdd(nextPath) {
     setUiError("");
 
     if (needsSize && !size) {
       setUiError(t("product.selectSize") || "Please select a size.");
-      return false;
+      return;
     }
-    return true;
-  }
 
-  function handleAddToCart() {
-    if (!validateSelection()) return;
     addToCart(product, { qty, color, size });
-    navigate("/cart");
-  }
-
-  function handleBuyNow() {
-    if (!validateSelection()) return;
-    addToCart(product, { qty, color, size });
-    navigate("/checkout");
-  }
-
-  function handleBackToShop() {
-    navigate("/shop");
+    navigate(nextPath);
   }
 
   return (
@@ -276,22 +262,24 @@ export default function ProductPage() {
             </div>
 
             {uiError && (
-              <div className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-700">
-                {uiError}
-              </div>
+              <div className="mt-4 rounded-xl bg-red-50 p-3 text-sm text-red-700">{uiError}</div>
             )}
 
             <div className="mt-8">
-              <Button className="w-full rounded-2xl" onClick={handleAddToCart}>
+              <Button className="w-full rounded-2xl" onClick={() => handleAdd("/cart")}>
                 {t("product.addToCart")}
               </Button>
 
               <div className="mt-3 grid grid-cols-2 gap-3">
-                <Button variant="secondary" className="rounded-2xl" onClick={handleBuyNow}>
+                <Button variant="secondary" className="rounded-2xl" onClick={() => handleAdd("/checkout")}>
                   {t("shop.buy")}
                 </Button>
 
-                <Button variant="secondary" className="rounded-2xl" onClick={handleBackToShop}>
+                <Button
+                  variant="secondary"
+                  className="rounded-2xl"
+                  onClick={() => navigate("/shop")}
+                >
                   {t("product.backToShop") || "Back to Shop"}
                 </Button>
               </div>

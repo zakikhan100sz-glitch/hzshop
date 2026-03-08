@@ -21,7 +21,6 @@
     "express-session": "^1.18.0",
     "helmet": "^7.1.0",
     "hpp": "^0.2.3",
-    "hzshop-fullstack": "file:..",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.5.3",
     "morgan": "^1.10.0",

@@ -10,7 +10,6 @@
   },
   "dependencies": {
     "framer-motion": "^12.35.0",
-    "hzshop-fullstack": "file:..",
     "i18next": "^23.16.8",
     "i18next-browser-languagedetector": "^8.2.1",
     "lucide-react": "^0.451.0",

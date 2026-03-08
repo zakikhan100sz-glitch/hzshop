@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import Container from '../components/Container';
@@ -12,7 +12,6 @@ import { api } from '../app/api';
 
 export default function HomePage() {
   const { t } = useTranslation();
-  const navigate = useNavigate();
   const [featured, setFeatured] = useState([]);
 
   useEffect(() => {
@@ -59,6 +58,7 @@ export default function HomePage() {
       exit={{ opacity: 0, y: -25 }}
       transition={{ duration: 0.35, ease: 'easeInOut' }}
     >
+
       <Container className="py-14">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center">
           <div>
@@ -73,15 +73,11 @@ export default function HomePage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button type="button" onClick={() => navigate('/shop')}>
+              <Button onClick={() => (window.location.href = '/shop')}>
                 {t('home.cta1')} <ArrowRight className="ml-2" size={16} />
               </Button>
 
-              <Button
-                type="button"
-                variant="secondary"
-                onClick={() => navigate('/shop')}
-              >
+              <Button variant="secondary" onClick={() => (window.location.href = '/shop')}>
                 {t('home.cta2')}
               </Button>
             </div>
@@ -116,6 +112,7 @@ export default function HomePage() {
         </div>
       </Container>
 
+      {/* FEATURED PRODUCTS */}
       <Container className="pb-16">
         <div className="flex items-end justify-between gap-4">
           <div>
@@ -123,11 +120,7 @@ export default function HomePage() {
             <p className="mt-2 text-neutral-600">{t('home.featuredSub')}</p>
           </div>
 
-          <Button
-            type="button"
-            variant="secondary"
-            onClick={() => navigate('/shop')}
-          >
+          <Button variant="secondary" onClick={() => (window.location.href = '/shop')}>
             {t('home.viewAll')} <ArrowRight className="ml-2" size={16} />
           </Button>
         </div>
@@ -138,6 +131,7 @@ export default function HomePage() {
           ))}
         </div>
       </Container>
+
     </motion.main>
   );
 }

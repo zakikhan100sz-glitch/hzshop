@@ -26,7 +26,15 @@ export async function api(path, { method = "GET", body, auth = false } = {}) {
   });
 
   const data = await res.json().catch(() => ({}));
-  if (!res.ok) throw new Error(data.message || "Request failed");
+  if (!res.ok) {
+    const friendly =
+      data?.errors?.map((e) => e.message).join(", ") ||
+      data?.message ||
+      "Request failed";
+
+    throw new Error(friendly);
+  }
+
   return data;
 }
 
