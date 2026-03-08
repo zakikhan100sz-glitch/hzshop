@@ -41,12 +41,13 @@ export default function AdminUsersPage() {
 
       // api helper should already include Authorization header (token)
       await api('/api/admin/users', {
-      method: 'POST',
-      body: {
-        name: name.trim(),
-        email: email.trim(),
-        password
-      }
+        method: 'POST',
+        auth: true,
+        body: {
+          name: name.trim(),
+          email: email.trim(),
+          password
+        }
       });
 
       setMsg('Admin created successfully.');
@@ -104,7 +105,7 @@ export default function AdminUsersPage() {
           {err && <div className="rounded-xl bg-red-50 p-3 text-sm text-red-700">{err}</div>}
           {msg && <div className="rounded-xl bg-green-50 p-3 text-sm text-green-700">{msg}</div>}
 
-          <Button className="rounded-2xl" disabled={loading}>
+          <Button type="submit" className="rounded-2xl" disabled={loading}>
             {loading ? 'Creating...' : 'Create Admin'}
           </Button>
         </form>
