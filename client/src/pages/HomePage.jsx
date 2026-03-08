@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { ArrowRight } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 import Container from '../components/Container';
@@ -12,6 +12,7 @@ import { api } from '../app/api';
 
 export default function HomePage() {
   const { t } = useTranslation();
+  const navigate = useNavigate();
   const [featured, setFeatured] = useState([]);
 
   useEffect(() => {
@@ -73,11 +74,11 @@ export default function HomePage() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-3">
-              <Button onClick={() => (window.location.href = '/shop')}>
+              <Button onClick={() => navigate('/shop')}>
                 {t('home.cta1')} <ArrowRight className="ml-2" size={16} />
               </Button>
 
-              <Button variant="secondary" onClick={() => (window.location.href = '/shop')}>
+              <Button onClick={() => navigate('/shop')}>
                 {t('home.cta2')}
               </Button>
             </div>
@@ -120,7 +121,7 @@ export default function HomePage() {
             <p className="mt-2 text-neutral-600">{t('home.featuredSub')}</p>
           </div>
 
-          <Button variant="secondary" onClick={() => (window.location.href = '/shop')}>
+          <Button onClick={() => navigate('/shop')}>
             {t('home.viewAll')} <ArrowRight className="ml-2" size={16} />
           </Button>
         </div>
