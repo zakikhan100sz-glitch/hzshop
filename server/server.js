@@ -66,9 +66,10 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/upload', uploadRoutes);
 
-
-const clientDist = path.join(process.cwd(), '..', 'client', 'dist');
-if (process.env.SERVE_CLIENT === 'true' && fs.existsSync(clientDist)) {
+// Serve client in production
+const clientDist = path.join(process.cwd(), 'client', 'dist');
+if (fs.existsSync(clientDist)) {
+  console.log('Serving static client from:', clientDist);
   app.use(express.static(clientDist));
   app.get('*', (req, res) => res.sendFile(path.join(clientDist, 'index.html')));
 }
